@@ -5,7 +5,8 @@
   $('#imgUpload').hide();
   $('#btnUpload').hide();
   $('#btnCancel').hide();
-  
+  $('form#formUpload').show();
+
   $.myOnSubmitUpload = function(evt) {
     console.log('Submit pressed');
     evt.preventDefault();
@@ -24,6 +25,22 @@
   
   }
   
+  $.myOnClickUpload = function(evt) {
+    console.log('Upload pressed');
+  }
+
+  $.myOnClickCancel = function(evt) {
+    console.log('Cancel pressed');
+
+    $('#imgUpload').attr('src', '');
+
+    $('#imgUpload').hide();
+    $('#btnUpload').hide();
+    $('#btnCancel').hide();
+    $('form#formUpload').show();
+
+  }
+
 
 
   //=============================================================================

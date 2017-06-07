@@ -18,9 +18,11 @@
     <form id="formUpload" onsubmit="$.myOnSubmitUpload(event)" >
       <label>Url: <input type="url" name="url"></label>
       <input type="submit">
+      <input type="reset">
     </form>
-    <button id="btnUpload" >Upload</button>
-    <button id="btnCancel" >Cancel</button>
+    <button id="btnUpload" onclick="$.myOnClickUpload(event)">Upload</button>
+    <button id="btnCancel" onclick="$.myOnClickCancel(event)">Cancel</button>
+    <br>
     <img id="imgUpload">
   </main>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
