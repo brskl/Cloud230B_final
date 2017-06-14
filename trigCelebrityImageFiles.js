@@ -15,16 +15,22 @@ exports.handler = (event, context, callback) => {
         console.log('DynamoDB Record: %j', record.dynamodb);
         if (record.eventName == 'INSERT') {
             var params = {
-                CollectionId: RKG_COL,
-                ExternalImageId: record.dynamodb.NewImage.FileId.S,
+                CollectionId: RKG_COL, 
+                ExternalImageId: record.dynamodb.NewImage.FileId.S, 
                 Image: {
                     S3Object: {
-                        Bucket: S3_SRC,
+                        Bucket: S3_SRC, 
                         Name: record.dynamodb.NewImage.FileId.S
                     }
                 }
             };
-            console.log('indexFaces params ', params);
+            rekognition.indexFaces(params, function(err, data) {
+                if (err) {
+                    console.log(err, err.stack);
+                } else {
+                    console.log(data);
+                }
+            });
         }
     });
     callback(null, `Successfully processed ${event.Records.length} records.`);
