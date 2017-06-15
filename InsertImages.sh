@@ -2,8 +2,8 @@
 
 
 // upload file and set permissions
-aws s3 cp 4e4eea45-be58-43d1-a574-b7c34709cb93.jpg s3://brsklar-celebrity-images
-aws s3api put-object-acl --acl public-read --bucket brsklar-celebrity-images --key 4e4eea45-be58-43d1-a574-b7c34709cb93.jpg
+aws s3 cp 580ab9fa-4155-41f1-b81a-3688e452e04c.jpg s3://brsklar-celebrity-images
+aws s3api put-object-acl --acl public-read --bucket brsklar-celebrity-images --key 580ab9fa-4155-41f1-b81a-3688e452e04c.jpg
 
 
 // aws cli scripts to upload data into table: CelebrityImageFiles
@@ -27,3 +27,16 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 
 // Party of Five (Matthew Fox, Neve Campbell, Jennifer Love Hewitt, Lacey Chabert, Scott Wolf)
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "6d30c302-790d-4b0d-9af1-213a22ccd421.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "834"}, "Width": {"N": "1024"}, "Source": {"S": "http://media.cmgdigital.com/shared/img/photos/2012/08/13/92/2d/slideshow_1002203033_PARTY-OF-FIVE6_62890.jpg"}}'
+
+// Bill Clinton
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "2f34f9d1-5142-400a-9f9c-a90580b80059.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "3000"}, "Width": {"N": "2053"}, "Source": {"S": "http://images.closerweekly.com/uploads/posts/image/52886/bill-clinton.jpg"}}
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "d8f3ff79-9c94-4edf-89e0-9a38da7850c1.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "933"}, "Width": {"N": "948"}, "Source": {"S": "http://thefederalist.com/wp-content/uploads/2015/03/Bill-Clinton-Photo.jpg"}}
+
+// Barak Obama
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "e8851dfd-9c7c-4f06-9570-75acb81e77ea.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "769"}, "Width": {"N": "615"}, "Source": {"S": "http://usinfonews.com/wp-content/uploads/2017/02/Barack-Obama.jpg"}}
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "580ab9fa-4155-41f1-b81a-3688e452e04c.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "400"}, "Width": {"N": "650"}, "Source": {"S": "http://i.ndtvimg.com/i/2015-12/barack-obama-afp_650x400_61450947679.jpg"}}
+
+
+
+
+
