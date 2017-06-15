@@ -37,13 +37,30 @@ exports.handler = (event, context, callback) => {
 };
 
 function onSuccessIndexFaces(data) {
-    console.log('NumFaces', data.FaceRecords.length);
     if (data.FaceRecords.length == 0) {
         console.log("Zero faces");
+        // TODO update entry in CelebrityImageFiles key=fileId with 'none' (pass in params to this function)
         return;
     } else {
         var imageId = data.FaceRecords[0].Face.ImageId;
         var fileId = data.FaceRecords[0].Face.ExternalImageId;
-        console.log("Faces:", imageId, ' ', fileId);
+        // TODO update entry in CelebrityImageFiles key=fileId with imageId
+        for (let faceRecord of data.FaceRecords) {
+            var params = {
+                TableName : 'CelebrityFaces',
+                Item: {
+                  FaceId: faceRecord.Face.FaceId,
+                  FileId: fileId,
+                  ImageId: imageId,
+                  BoundingBoxHeight: faceRecord.Face.BoundingBox.Height,
+                  BoundingBoxLeft: faceRecord.Face.BoundingBox.Left,
+                  BoundingBoxTop: faceRecord.Face.BoundingBox.Top, 
+                  BoundingBoxWidth: faceRecord.Face.BoundingBox.Width,
+                  Confidence: faceRecord.Face.Confidence
+                },
+                ReturnConsumedCapacity: "TOTAL"
+            };
+            console.log(params);
+        }
     }
 }
