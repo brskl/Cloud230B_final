@@ -28,10 +28,22 @@ exports.handler = (event, context, callback) => {
                 if (err) {
                     console.log(err, err.stack);
                 } else {
-                    console.log(data);
+                    onSuccessIndexFaces(data);
                 }
             });
         }
     });
     callback(null, `Successfully processed ${event.Records.length} records.`);
 };
+
+function onSuccessIndexFaces(data) {
+    console.log('NumFaces', data.FaceRecords.length);
+    if (data.FaceRecords.length == 0) {
+        console.log("Zero faces");
+        return;
+    } else {
+        var imageId = data.FaceRecords[0].Face.ImageId;
+        var fileId = data.FaceRecords[0].Face.ExternalImageId;
+        console.log("Faces:", imageId, ' ', fileId);
+    }
+}
