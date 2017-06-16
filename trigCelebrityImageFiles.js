@@ -17,6 +17,7 @@ exports.handler = (event, context, callback) => {
             var params = {
                 CollectionId: RKG_COL, 
                 ExternalImageId: record.dynamodb.NewImage.FileId.S, 
+                DetectionAttributes: ['ALL'],
                 Image: {
                     S3Object: {
                         Bucket: S3_SRC, 
@@ -54,7 +55,11 @@ function onSuccessIndexFaces(fileId, data) {
                     BoundingBoxLeft: faceRecord.Face.BoundingBox.Left,
                     BoundingBoxTop: faceRecord.Face.BoundingBox.Top, 
                     BoundingBoxWidth: faceRecord.Face.BoundingBox.Width,
-                    Confidence: faceRecord.Face.Confidence
+                    Confidence: faceRecord.Face.Confidence,
+                    Gender: faceRecord.FaceDetail.Gender.Value,
+                    GenderConfidence: faceRecord.FaceDetail.Gender.Confidence,
+                    Smile: faceRecord.FaceDetail.Smile.Value,
+                    SmileConfidence: faceRecord.FaceDetail.Smile.Confidence
                 },
                 ConditionExpression: "attribute_not_exists(FaceId)",
                 ReturnConsumedCapacity: "TOTAL"
