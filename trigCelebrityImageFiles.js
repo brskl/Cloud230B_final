@@ -76,17 +76,24 @@ function onSuccessIndexFaces(fileId, data) {
     // update key=fileId, imageId =<new-value>
     var params = {
         TableName: 'CelebrityImageFiles',
-        ReturnValues: "ALL_NEW",
+        ReturnValues: "UPDATED_NEW",
         ExpressionAttributeNames: {
             "#II": "ImageId"
         }, 
         ExpressionAttributeValues: {
-            ":i": { S: imageId }
+            ":i": imageId
         }, 
         UpdateExpression: "SET #II = :i",
         Key: {
-            "FileId": { S: fileId }
+            "FileId": fileId
         }, 
     };
-    console.log(params);
+    var documentClient = new AWS.DynamoDB.DocumentClient();
+    documentClient.update(params, function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(data);
+        }
+    });
 }
