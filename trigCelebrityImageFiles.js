@@ -54,15 +54,12 @@ function onSuccessIndexFaces(fileId, data) {
                     BoundingBoxLeft: faceRecord.Face.BoundingBox.Left,
                     BoundingBoxTop: faceRecord.Face.BoundingBox.Top, 
                     BoundingBoxWidth: faceRecord.Face.BoundingBox.Width,
-                    Confidence: faceRecord.Face.Confidence,
-                    Gender: faceRecord.FaceDetail.Gender.Value,
-                    GenderConfidence: faceRecord.FaceDetail.Gender.Confidence,
-                    Smile: faceRecord.FaceDetail.Smile.Value,
-                    SmileConfidence: faceRecord.FaceDetail.Smile.Confidence
+                    Confidence: faceRecord.Face.Confidence
                 },
                 ConditionExpression: "attribute_not_exists(FaceId)",
                 ReturnConsumedCapacity: "TOTAL"
             };
+            
             var documentClient = new AWS.DynamoDB.DocumentClient();
             documentClient.put(params, function(err, data) {
                 if (err) {
@@ -71,7 +68,7 @@ function onSuccessIndexFaces(fileId, data) {
                     console.log(data);
                 }
             });
-        } // end for faceRecord loop
+        }
     }
     // update key=fileId, imageId =<new-value>
     var params = {
