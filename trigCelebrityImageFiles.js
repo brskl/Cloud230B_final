@@ -43,7 +43,6 @@ function onSuccessIndexFaces(fileId, data) {
         imageId = "none";
     } else {
         imageId = data.FaceRecords[0].Face.ImageId;
-        // TODO update entry in CelebrityImageFiles key=fileId with imageId
         for (let faceRecord of data.FaceRecords) {
             var params = {
                 TableName : 'CelebrityFaces',
@@ -55,12 +54,24 @@ function onSuccessIndexFaces(fileId, data) {
                     BoundingBoxLeft: faceRecord.Face.BoundingBox.Left,
                     BoundingBoxTop: faceRecord.Face.BoundingBox.Top, 
                     BoundingBoxWidth: faceRecord.Face.BoundingBox.Width,
-                    Confidence: faceRecord.Face.Confidence
+                    Confidence: faceRecord.Face.Confidence,
+                    Gender: faceRecord.FaceDetail.Gender.Value,
+                    GenderConfidence: faceRecord.FaceDetail.Gender.Confidence,
+                    Smile: faceRecord.FaceDetail.Smile.Value,
+                    SmileConfidence: faceRecord.FaceDetail.Smile.Confidence
                 },
+                ConditionExpression: "attribute_not_exists(FaceId)",
                 ReturnConsumedCapacity: "TOTAL"
             };
-            console.log(params);
-        }
+            var documentClient = new AWS.DynamoDB.DocumentClient();
+            documentClient.put(params, function(err, data) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(data);
+                }
+            });
+        } // end for faceRecord loop
     }
     // update key=fileId, imageId =<new-value>
     var params = {
