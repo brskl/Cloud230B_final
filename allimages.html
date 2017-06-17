@@ -19,6 +19,7 @@
     <h2>All images</h2>
     <div id="divTableAll">
       <script id="tableAllTemplate" type="text/x-handlebars-template">
+        {{#if imagefiles}}
         <table border="1">
           <thead>
             <tr><th>FileId</th><th>Size</th><th>ImageId</th><th>Source</th></tr>
@@ -34,6 +35,9 @@
             {{/each}}
           </tbody>
         </table>
+        {{else}}
+          No images available
+        {{/if}}
       </script>
     </div>
   </main>
