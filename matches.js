@@ -1,4 +1,5 @@
 var templateTableMatches = Handlebars.compile( $('#templateTableMatches').html());
+var templateMatch = Handlebars.compile( $('#templateMatch').html());
 
 function loadMatchesPage() {
   var faceids = getParameterByName('faceids');
@@ -6,8 +7,11 @@ function loadMatchesPage() {
   
   if (faceids && faceidt) {
     $('#divTableMatches').hide();
+    $('#divMatch').show();
+    loadMatch(faceids, faceidt);
   } else {
     $('#divTableMatches').show();
+    $('#divMatch').hide();
     loadMatches();
   }
 }
@@ -27,6 +31,12 @@ function loadMatches() {
       $('#divTableMatches').html(html);
     }
   });
+}
+
+function loadMatch(faceids, faceidt) {
+  var tdata = { FaceIdSearch: faceids, FaceIdTarget: faceidt };
+      var html = templateMatch(tdata);
+      $('#divMatch').html(html);
 }
 
 
