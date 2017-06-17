@@ -34,8 +34,15 @@ function putMatch(searchedFaceId, faceMatch) {
         ReturnConsumedCapacity: "TOTAL"
     };
   
-  console.log(params);
-  
+    console.log(params);
+    var documentClient = new AWS.DynamoDB.DocumentClient();
+    documentClient.put(params, function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(data);
+        }
+    });
 }
 
 function guid() {
