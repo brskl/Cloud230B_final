@@ -25,7 +25,6 @@ function putMatch(searchedFaceId, faceMatch) {
     var params = {
         TableName : 'CelebrityFaceMatches',
         Item: {
-            MatchId: guid(),
             FaceIdSearch: searchedFaceId,
             FaceIdTarget: faceId,
             Similarity: similarity
