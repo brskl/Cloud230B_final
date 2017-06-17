@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Celebrity Images</title>
+
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+  <header>
+    <h1>Celebrity Images</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="allimages.html">All Images</a>
+      <a href="faces.html">Faces</a>
+      <a href="matches.html">Matches</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Matches</h2>
+    <div id="divTableMatches">
+      <script id="templateTableMatches" type="text/x-handlebars-template">
+        <h3>All Matches</h3>
+        {{#if matches}}
+          <table border="1">
+            <thead>
+              <tr><th>FaceIdSearch</th><th>FaceIdTarget</th><th>Similarity</th><th>side-by-side</th></tr>
+            </thead>
+            <tbody>
+              {{#each matches}}
+              <tr>
+                <td><a href="faces.html?faceid={{FaceIdSearch}}">{{FaceIdSearch}}</a></td>
+                <td><a href="faces.html?faceid={{FaceIdTarget}}">{{FaceIdTarget}}</a></td>
+                <td>{{Similarity}}</td>
+                <td><a href="matches.html?faceids={{FaceIdSearch}}&faceidt={{FaceIdTarget}}">side-by-side</a></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          No Matches available
+        {{/if}}
+      </script>
+    </div>
+  </main>
+  <script type="text/javascript" src="aws-sdk-2.70.0.min.js"></script>
+  <script type="text/javascript" src="aws.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+  <script type="text/javascript" src="matches.js"></script>
+</body>
+</html>
