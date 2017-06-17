@@ -8,9 +8,10 @@ function loadImagePage() {
 
     var params = {
       TableName: "CelebrityImageFiles",
-      KeyConditionExpression: "FileId = :" + fileid
+      KeyConditionExpression: "FileId = :fileidVal",
+      ExpressionAttributeValues: { ':fileidVal': fileid}
     };
-    dynamodbdoc.scan(params, function(err, data) {
+    dynamodbdoc.query(params, function(err, data) {
       if (err) {
         console.log(err, err.stack); // an error occurred
         $('#divImageTemplate').html('Unable to download data');
