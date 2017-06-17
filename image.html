@@ -17,10 +17,20 @@
   </header>
   <main>
     <h2>Image</h2>
+    <div id="divImageTemplate">
+      <script id="imageTemplate" type="text/x-handlebars-template">
+        FileId: {{imagefile.FileId}}<br>
+        S3 link: <a href="https://s3-us-west-2.amazonaws.com/brsklar-celebrity-images/{{imagefile.FileId}}">https://s3-us-west-2.amazonaws.com/brsklar-celebrity-images/{{imagefile.FileId}}</a><br>
+        Width Height: {{imagefile.Width}}x{{imagefile.Height}}<br>
+        ImageId: {{imagefile.ImageId}}<br>
+        <img width="200" src="https://s3-us-west-2.amazonaws.com/brsklar-celebrity-images/{{imagefile.FileId}}">
+      </script>
+    </div>
   </main>
   <script type="text/javascript" src="aws-sdk-2.70.0.min.js"></script>
   <script type="text/javascript" src="aws.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+  <script type="text/javascript" src="image.js"></script>
 </body>
 </html>
