@@ -1,12 +1,18 @@
 var templateTableFaces = Handlebars.compile( $('#templateTableFaces').html());
+var templateFace = Handlebars.compile( $('#templateFace').html());
 
 function loadFacesPage() {
   var faceid = getParameterByName('faceid');
   
   if (faceid) {
     $('#divTableFaces').hide();
+    $('#divFace').show();
+        var tdata = { FaceId: faceid };
+        var html = templateFace(tdata);
+        $('#divFace').html(html);
   } else {
     $('#divTableFaces').show();
+    $('#divFace').hide();
     var dynamodbdoc = new AWS.DynamoDB.DocumentClient();
     var params = {
       TableName: "CelebrityFaces",
