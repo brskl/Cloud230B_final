@@ -26,6 +26,31 @@
         <img width="200" src="https://s3.amazonaws.com/benjaminsklar-celebrity-images/{{imagefile.FileId}}">
       </script>
     </div>
+    <div id="divFacesTemplate">
+      <script id="facesTemplate" type="text/x-handlebars-template">
+        <h3>Faces</h3>
+        {{#if faces}}
+          <table border="1">
+            <thead>
+              <tr><th>FaceId</th><th>ImageId</th><th>Confidence</th><th>Gender</th><th>Smile</th></tr>
+            </thead>
+            <tbody>
+              {{#each faces}}
+              <tr>
+                <td><a href="face.html?faceid={{FaceId}}">{{FaceId}}</a></td>
+                <td>{{ImageId}}</td>
+                <td>{{Confidence}}</td>
+                <td>{{Gender}}</td>
+                <td>{{Smile}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          No faces available
+        {{/if}}
+      </script>
+    </div>
   </main>
   <script type="text/javascript" src="aws-sdk-2.70.0.min.js"></script>
   <script type="text/javascript" src="aws.js"></script>
