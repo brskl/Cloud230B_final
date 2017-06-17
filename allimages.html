@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Celebrity Images</title>
+
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+  <header>
+    <h1>Celebrity Images</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="allimages.html">All Images</a>
+    </nav>
+  </header>
+  <main>
+    <h2>All images</h2>
+    <div id="divTableAll">
+      <script id="tableAllTemplate" type="text/x-handlebars-template">
+        <table border="1">
+          <thead>
+            <tr><th>File</th><th>Size</th><th>ImageId</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://s3-us-west-2.amazonaws.com/brsklar-celebrity-images/2f6475db-9309-4452-91b0-478be06c6a21.jpg ">2f6475db-9309-4452-91b0-478be06c6a21.jpg</a></td>
+          <td>1280x1933</td><td></td>
+          <td><a href="http://celebmafia.com/wp-content/uploads/2016/04/lacey-chabert-2016-milk-bookies-story-time-celebration-at-california-market-center-in-los-angeles-1.jpg">http://celebmafia.com/wp-content/uploads/2016/04/lacey-chabert-2016-milk-bookies-story-time-celebration-at-california-market-center-in-los-angeles-1.jpg</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </script>
+    </div>
+  </main>
+  <script type="text/javascript" src="aws-sdk-2.70.0.min.js"></script>
+  <script type="text/javascript" src="aws.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+  <script type="text/javascript" src="allimages.js"></script>
+</body>
+</html>
