@@ -13,32 +13,25 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="allimages.html">All Images</a>
+      <a href="faces.html">Faces</a>
     </nav>
   </header>
   <main>
-    <h2>Image</h2>
-    <div id="divImageTemplate">
-      <script id="imageTemplate" type="text/x-handlebars-template">
-        FileId: {{imagefile.FileId}}<br>
-        S3 link: <a href="https://s3.amazonaws.com/benjaminsklar-celebrity-images/{{imagefile.FileId}}">https://s3.amazonaws.com/benjaminsklar-celebrity-images/{{imagefile.FileId}}</a><br>
-        Width Height: {{imagefile.Width}}x{{imagefile.Height}}<br>
-        ImageId: {{imagefile.ImageId}}<br>
-        <img width="200" src="https://s3.amazonaws.com/benjaminsklar-celebrity-images/{{imagefile.FileId}}">
-      </script>
-    </div>
-    <div id="divFacesTemplate">
-      <script id="facesTemplate" type="text/x-handlebars-template">
-        <h3>Faces</h3>
+    <h2>Faces</h2>
+    <div id="divTableFaces">
+      <script id="templateTableFaces" type="text/x-handlebars-template">
+        <h3>All Faces</h3>
         {{#if faces}}
           <table border="1">
             <thead>
-              <tr><th>FaceId</th><th>ImageId</th><th>Confidence</th><th>Gender</th><th>Smile</th></tr>
+              <tr><th>FaceId</th><th>ImageId</th><th>FileId</th><th>Confidence</th><th>Gender</th><th>Smile</th></tr>
             </thead>
             <tbody>
               {{#each faces}}
               <tr>
                 <td><a href="faces.html?faceid={{FaceId}}">{{FaceId}}</a></td>
                 <td>{{ImageId}}</td>
+                <td><a href="image.html?fileid={{FileId}}">{{FileId}}</a></td>
                 <td>{{Confidence}}</td>
                 <td>{{Gender}}</td>
                 <td>{{Smile}}</td>
@@ -56,6 +49,6 @@
   <script type="text/javascript" src="aws.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
-  <script type="text/javascript" src="image.js"></script>
+  <script type="text/javascript" src="faces.js"></script>
 </body>
 </html>
