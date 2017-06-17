@@ -7,18 +7,27 @@ var rekognition = new AWS.Rekognition();
 const RKG_COL = process.env.faceCollection;
 
 exports.handler = (event, context, callback) => {
-    var params = {
-        CollectionId: RKG_COL,
-        FaceId: '69875313-f0f8-501a-a07f-9f35f43307ef',
-        FaceMatchThreshold: 70.0
-    };
-    rekognition.searchFaces(params, function(err, data) {
-        if (err) {
-            console.log(err, err.stack);
-        } else {
-            putMatches(data);
+    event.Records.forEach((record) => {
+        console.log(record.eventID);
+        console.log(record.eventName);
+        console.log('DynamoDB Record: %j', record.dynamodb);
+        if (record.eventName == 'INSERT') {
+            var params = {
+                CollectionId: RKG_COL,
+                FaceId: record.dynamodb.NewImage.FaceId.S,
+                FaceMatchThreshold: 70.0
+            };
+            rekognition.searchFaces(params, function(err, data) {
+                if (err) {
+                    console.log(err, err.stack);
+                } else {
+                    putMatches(data);
+                }
+            });
         }
     });
+    callback(null, `Successfully processed ${event.Records.length} records.`);
+
 }
 
 function putMatches(searchData) {
