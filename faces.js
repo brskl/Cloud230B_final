@@ -39,15 +39,28 @@ function loadFace(faceid) {
 }
 
 function loadMatches(faceid) {
-      var tdata = { FaceId: faceid };
+  var dynamodbdoc = new AWS.DynamoDB.DocumentClient();
+  var params = {
+    TableName: "CelebrityFaceMatches",
+    FilterExpression: "FaceIdSearch = :faceidVal OR FaceIdTarget = :faceidVal",
+    ExpressionAttributeValues: { ':faceidVal': faceid }
+  };
+  dynamodbdoc.scan(params, function(err, data) {
+    if (err) {
+      console.log(err, err.stack); // an error occurred
+      $('#divMatches').html('Unable to download data');
+    } else {
+      var tdata = { matches: data.Items };
       var html = templateMatches(tdata);
       $('#divMatches').html(html);
+    }
+  });
 }
 
 function loadFaces() {
   var dynamodbdoc = new AWS.DynamoDB.DocumentClient();
   var params = {
-    TableName: "CelebrityFaces",
+    TableName: "CelebrityFaces"
   };
   dynamodbdoc.scan(params, function(err, data) {
     if (err) {

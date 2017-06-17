@@ -58,7 +58,24 @@
     <div id="divMatches">
       <script id="templateMatches" type="text/x-handlebars-template">
         <h3>Matches</h3>
-        {{FaceId}}
+          {{#if matches}}
+          <table border="1">
+            <thead>
+              <tr><th>FaceIdSearch</th><th>FaceIdTarget</th><th>Similarity</th></tr>
+            </thead>
+            <tbody>
+              {{#each matches}}
+              <tr>
+                <td><a href="faces.html?faceid={{FaceIdSearch}}">{{FaceIdSearch}}</a></td>
+                <td><a href="faces.html?faceid={{FaceIdTarget}}">{{FaceIdTarget}}</a></td>
+                <td>{{Similarity}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          No matches available
+        {{/if}}
       </script>
     </div>
   </main>
