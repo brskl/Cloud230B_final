@@ -7,7 +7,18 @@ var rekognition = new AWS.Rekognition();
 const RKG_COL = process.env.faceCollection;
 
 exports.handler = (event, context, callback) => {
-    putMatches(event);
+    var params = {
+        CollectionId: RKG_COL,
+        FaceId: '69875313-f0f8-501a-a07f-9f35f43307ef',
+        FaceMatchThreshold: 70.0
+    };
+    rekognition.searchFaces(params, function(err, data) {
+        if (err) {
+            console.log(err, err.stack);
+        } else {
+            putMatches(data);
+        }
+    });
 }
 
 function putMatches(searchData) {
@@ -29,11 +40,10 @@ function putMatch(searchedFaceId, faceMatch) {
             FaceIdTarget: faceId,
             Similarity: similarity
         },
-        ConditionExpression: "attribute_not_exists(MatchId)",
+        ConditionExpression: "attribute_not_exists(FaceIdSearch)",
         ReturnConsumedCapacity: "TOTAL"
     };
   
-    console.log(params);
     var documentClient = new AWS.DynamoDB.DocumentClient();
     documentClient.put(params, function(err, data) {
         if (err) {
@@ -42,13 +52,4 @@ function putMatch(searchedFaceId, faceMatch) {
             console.log(data);
         }
     });
-}
-
-function guid() {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
