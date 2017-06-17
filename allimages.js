@@ -11,7 +11,7 @@ function loadAllPage() {
       console.log(err, err.stack); // an error occurred
       $('#divTableAll').html('Unable to download data');
     } else {
-      var tdata = {  };
+      var tdata = { imagefiles: data.Items };
       var html = tableAllTemplate(tdata);
       $('#divTableAll').html(html);
     }
