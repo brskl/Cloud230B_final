@@ -1,19 +1,25 @@
 var templateTableFaces = Handlebars.compile( $('#templateTableFaces').html());
 var templateFace = Handlebars.compile( $('#templateFace').html());
+var templateMatches = Handlebars.compile( $('#templateMatches').html());
 
 function loadFacesPage() {
   var faceid = getParameterByName('faceid');
   
   if (faceid) {
+    $('#divTableFaces').hide();
+    $('#divFace').show();
+    $('#divMatches').show();
     loadFace(faceid);
+    loadMatches(faceid);
   } else {
+    $('#divTableFaces').show();
+    $('#divFace').hide();
+    $('#divMatches').hide();
     loadFaces();
   }
 }
 
 function loadFace(faceid) {
-  $('#divTableFaces').hide();
-  $('#divFace').show();
   var dynamodbdoc = new AWS.DynamoDB.DocumentClient();
   var params = {
     TableName: "CelebrityFaces",
@@ -28,14 +34,17 @@ function loadFace(faceid) {
       var tdata = { face: data.Items[0] };
       var html = templateFace(tdata);
       $('#divFace').html(html);
-      // TODO: show matches
     }
   });
 }
 
+function loadMatches(faceid) {
+      var tdata = { FaceId: faceid };
+      var html = templateMatches(tdata);
+      $('#divMatches').html(html);
+}
+
 function loadFaces() {
-  $('#divTableFaces').show();
-  $('#divFace').hide();
   var dynamodbdoc = new AWS.DynamoDB.DocumentClient();
   var params = {
     TableName: "CelebrityFaces",
@@ -51,5 +60,7 @@ function loadFaces() {
     }
   });
 }
+
+
 
 window.onload = loadFacesPage;
