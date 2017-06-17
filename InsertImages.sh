@@ -37,6 +37,3 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "580ab9fa-4155-41f1-b81a-3688e452e04c.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "400"}, "Width": {"N": "650"}, "Source": {"S": "http://i.ndtvimg.com/i/2015-12/barack-obama-afp_650x400_61450947679.jpg"}}
 
 
-
-
-
