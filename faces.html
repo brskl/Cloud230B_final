@@ -47,7 +47,12 @@
     <div id="divFace">
       <script id="templateFace" type="text/x-handlebars-template">
         <h3>Face</h3>
-        {{FaceId}}
+        FaceId: {{face.FaceId}}<br>
+        ImageId: {{face.ImageId}}<br>
+        FileId:<a href="image.html?fileid={{face.FileId}}">{{face.FileId}}</a><br>
+        Confidence:{{face.Confidence}}<br>
+        Gender:{{face.Gender}} @ {{face.GenderConfidence}}<br>
+        Smile:{{face.Smile}} @ {{face.SmileConfidence}}<br>
       </script>
     </div>
   </main>
