@@ -25,7 +25,7 @@
         {{#if faces}}
           <table border="1">
             <thead>
-              <tr><th>FaceId</th><th>ImageId</th><th>FileId</th><th>Confidence</th><th>Gender</th><th>Smile</th></tr>
+              <tr><th>FaceId</th><th>ImageId</th><th>FileId</th><th>Confidence</th><th>Gender</th><th>Smile</th><th>Name</th></tr>
             </thead>
             <tbody>
               {{#each faces}}
@@ -36,6 +36,7 @@
                 <td>{{Confidence}}</td>
                 <td>{{Gender}}</td>
                 <td>{{Smile}}</td>
+                <td>{{Name}}</td>
               </tr>
               {{/each}}
             </tbody>
@@ -51,6 +52,7 @@
         FaceId: {{face.FaceId}}<br>
         ImageId: {{face.ImageId}}<br>
         FileId:<a href="image.html?fileid={{face.FileId}}">{{face.FileId}}</a><br>
+        BoundingBox (LwTh): {{face.BoundingBoxLeft}} {{face.BoundingBoxWidth}} {{face.BoundingBoxTop}} {{face.BoundingBoxHeight}}<br>
         Confidence:{{face.Confidence}}<br>
         Gender:{{face.Gender}} @ {{face.GenderConfidence}}<br>
         Smile:{{face.Smile}} @ {{face.SmileConfidence}}<br>
