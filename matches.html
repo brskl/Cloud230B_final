@@ -20,8 +20,8 @@
   <main>
     <h2>Matches</h2>
     <div id="divTableMatches">
+      <h3>All Matches</h3>
       <script id="templateTableMatches" type="text/x-handlebars-template">
-        <h3>All Matches</h3>
         {{#if matches}}
           <table border="1">
             <thead>
@@ -44,11 +44,11 @@
       </script>
     </div>
     <div id="divMatch">
+      <h3>Side-by-Side</h3>
       <script id="templateMatch" type="text/x-handlebars-template">
-        <h3>Side-by-Side</h3>
-        FaceIdSearch:<a href="faces.html?faceid={{FaceIdSearch}}">{{FaceIdSearch}}</a><br>
-        FaceIdTarget:<a href="faces.html?faceid={{FaceIdTarget}}">{{FaceIdTarget}}</a><br>
-        Similarity:{{Similarity}}<br>
+        FaceIdSearch: <a href="faces.html?faceid={{match.FaceIdSearch}}">{{match.FaceIdSearch}}</a><br>
+        FaceIdTarget: <a href="faces.html?faceid={{match.FaceIdTarget}}">{{match.FaceIdTarget}}</a><br>
+        Similarity: {{match.Similarity}}<br>
       </script>
     </div>
   </main>
