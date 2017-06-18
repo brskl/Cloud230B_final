@@ -1,4 +1,5 @@
 var templateName = Handlebars.compile( $('#templateName').html());
+var templateCelebrityInfo = Handlebars.compile( $('#templateCelebrityInfo').html());
 var templateTableNames = Handlebars.compile( $('#templateTableNames').html());
 var templateTableFaces = Handlebars.compile( $('#templateTableFaces').html());
 
@@ -8,12 +9,14 @@ function loadNamesPage() {
   if (nameid) {
     $('#divTableNames').hide();
     $('#divName').show();
+    $('#divCelebrityInfo').show();
     $('#divTableFaces').show();
     loadName(nameid);
     loadFaces(nameid);
   } else {
     $('#divTableNames').show();
     $('#divName').hide();
+    $('#divCelebrityInfo').hide();
     $('#divTableFaces').hide();
     loadNames();
   }
@@ -63,8 +66,15 @@ function loadFaces(nameid) {
       var tdata = { faces: data.Items };
       var html = templateTableFaces(tdata);
       $('#divTableFaces').html(html);
+      loadCelebrityInfo(data.Items[0].CelebrityId);
     }
   });
+}
+
+function loadCelebrityInfo(celebrityidval) {
+  var tdata = { celebrityid: celebrityidval };
+  var html = templateCelebrityInfo(tdata);
+  $('#divCelebrityInfo').html(html);
 }
 
 function array_unique_name(arr) {      
