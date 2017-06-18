@@ -58,7 +58,11 @@
         Confidence:{{face.Confidence}}<br>
         Gender:{{face.Gender}} @ {{face.GenderConfidence}}<br>
         Smile:{{face.Smile}} @ {{face.SmileConfidence}}<br>
-        Name:{{face.Name}}<br>
+        Name: 
+          {{#if face.Name}}
+            <a href="names.html?nameid={{face.Name}}">{{face.Name}}</a>
+          {{/if}}
+        <br>
         CelebrityId:{{face.CelebrityId}}<br>
       </script>
     </div>
