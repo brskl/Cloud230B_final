@@ -10,6 +10,7 @@ function loadNamesPage() {
     $('#divName').show();
     $('#divTableFaces').show();
     loadName(nameid);
+    loadFaces(nameid);
   } else {
     $('#divTableNames').show();
     $('#divName').hide();
@@ -44,6 +45,26 @@ function loadName(nameid) {
   var tdata = { Name: nameid };
   var html = templateName(tdata);
   $('#divName').html(html);
+}
+
+function loadFaces(nameid) {
+  var dynamodbdoc = new AWS.DynamoDB.DocumentClient();
+  var params = {
+    TableName: "CelebrityFaces",
+    FilterExpression: "#N = :nameVal",
+    ExpressionAttributeValues: { ':nameVal': nameid },
+    ExpressionAttributeNames: {'#N': 'Name'}
+  };
+  dynamodbdoc.scan(params, function(err, data) {
+    if (err) {
+      console.log(err, err.stack); // an error occurred
+      $('#divTableFaces').html('Unable to download data');
+    } else {
+      var tdata = { faces: data.Items };
+      var html = templateTableFaces(tdata);
+      $('#divTableFaces').html(html);
+    }
+  });
 }
 
 function array_unique_name(arr) {      
