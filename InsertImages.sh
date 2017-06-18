@@ -47,5 +47,5 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "f1d40dd9-aa68-4aac-b0bf-a9d52d995849.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1000"}, "Width": {"N": "700"}, "Source": {"S": "http://media.hollywood.com/images/700x1000/5939069.jpg"}}
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "b13bd24d-a2bb-4bf7-9371-5898d5de4467.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "408"}, "Width": {"N": "736"}, "Source": {"S": "http://media.urbantabloid.com/wp-content/uploads/2016/03/Johnny-Galecki1.jpg"}}
 
-
-
+// Big Bang Theory cast
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "6b500272-5cea-4ee1-bd8b-7e4161272530.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1080"}, "Width": {"N": "1920"}, "Source": {"S": "http://www.goliath.com/wp-content/uploads/2016/04/Big-Bang-Theory.jpg"}}
