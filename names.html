@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Celebrity Images</title>
+
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+  <header>
+    <h1>Celebrity Images</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="allimages.html">All Images</a>
+      <a href="faces.html">Faces</a>
+      <a href="matches.html">Matches</a>
+      <a href="names.html">Names</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Names</h2>
+    <div id="divTableNames">
+      <script id="templateTableNames" type="text/x-handlebars-template">
+        <h3>All Names</h3>
+        {{#if names}}
+          <table border="1">
+            <thead>
+              <tr><th>Name</th></tr>
+            </thead>
+            <tbody>
+              {{#each names}}
+              <tr>
+                <td><a href="names.html?nameid={{Name}}">{{Name}}</a></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          No names available
+        {{/if}}
+      </script>
+    </div>
+    <div id="divName">
+      <script id="templateName" type="text/x-handlebars-template">
+        <h3>Name</h3>
+      </script>
+    </div>
+    <div id="divTableFaces">
+      <script id="templateTableFaces" type="text/x-handlebars-template">
+        <h3>All Faces</h3>
+        {{#if faces}}
+          <table border="1">
+            <thead>
+              <tr><th>FaceId</th><th>ImageId</th><th>FileId</th><th>Confidence</th><th>Gender</th><th>Smile</th><th>Name</th></tr>
+            </thead>
+            <tbody>
+              {{#each faces}}
+              <tr>
+                <td><a href="faces.html?faceid={{FaceId}}">{{FaceId}}</a></td>
+                <td>{{ImageId}}</td>
+                <td><a href="image.html?fileid={{FileId}}">{{FileId}}</a></td>
+                <td>{{Confidence}}</td>
+                <td>{{Gender}}</td>
+                <td>{{Smile}}</td>
+                <td>{{Name}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          No faces available
+        {{/if}}
+      </script>
+    </div>
+  </main>
+  <script type="text/javascript" src="aws-sdk-2.70.0.min.js"></script>
+  <script type="text/javascript" src="aws.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+  <script type="text/javascript" src="names.js"></script>
+</body>
+</html>
