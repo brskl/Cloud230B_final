@@ -72,9 +72,22 @@ function loadFaces(nameid) {
 }
 
 function loadCelebrityInfo(celebrityidval) {
-  var tdata = { celebrityid: celebrityidval };
-  var html = templateCelebrityInfo(tdata);
-  $('#divCelebrityInfo').html(html);
+  if (celebrityidval) {
+    var rekognition = new AWS.Rekognition();
+    var tdata = { celebrityid: celebrityidval };
+    var params = {Id: celebrityidval };
+    rekognition.getCelebrityInfo(params, function(err, data) {
+      if (err) {
+        console.log(err, err.stack);
+      } else {
+        tdata.urls = data.Urls;
+      }
+      var html = templateCelebrityInfo(tdata);
+      $('#divCelebrityInfo').html(html);
+    });
+  } else {
+    $('#divCelebrityInfo').html('No Celebrity id');
+  }
 }
 
 function array_unique_name(arr) {      

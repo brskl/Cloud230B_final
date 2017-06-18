@@ -50,6 +50,11 @@
     <div id="divCelebrityInfo">
       <script id="templateCelebrityInfo" type="text/x-handlebars-template">
         CelebrityId: {{celebrityid}}<br>
+        {{#if urls}}
+          {{#each urls}}
+            <a href="http://{{this}}">{{this}}</a><br>
+          {{/each}}
+        {{/if}}
       </script>
     </div>
     <div id="divTableFaces">
