@@ -1,5 +1,6 @@
 var templateTableMatches = Handlebars.compile( $('#templateTableMatches').html());
 var templateMatch = Handlebars.compile( $('#templateMatch').html());
+var templateFace = Handlebars.compile( $('#templateFace').html());
 
 function loadMatchesPage() {
   var faceids = getParameterByName('faceids');
@@ -8,10 +9,16 @@ function loadMatchesPage() {
   if (faceids && faceidt) {
     $('#divTableMatches').hide();
     $('#divMatch').show();
+    $('#divSearch').show();
+    $('#divTarget').show();
     loadMatch(faceids, faceidt);
+    loadFace('#divSearch', "Face Search", faceids);
+    loadFace('#divTarget', "Face Target", faceidt);
   } else {
     $('#divTableMatches').show();
     $('#divMatch').hide();
+    $('#divSearch').hide();
+    $('#divTarget').hide();
     loadMatches();
   }
 }
@@ -50,6 +57,13 @@ function loadMatch(faceids, faceidt) {
       $('#divMatch').html(html);
     }
   });
+}
+
+function loadFace(div, title, faceid) {
+  var tdata = {Title: title, face: {FaceId : faceid}};
+        var html = templateFace(tdata);
+      $(div).html(html);
+
 }
 
 

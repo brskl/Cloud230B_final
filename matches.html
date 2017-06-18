@@ -20,8 +20,8 @@
   <main>
     <h2>Matches</h2>
     <div id="divTableMatches">
-      <h3>All Matches</h3>
       <script id="templateTableMatches" type="text/x-handlebars-template">
+        <h3>All Matches</h3>
         {{#if matches}}
           <table border="1">
             <thead>
@@ -44,13 +44,23 @@
       </script>
     </div>
     <div id="divMatch">
-      <h3>Side-by-Side</h3>
       <script id="templateMatch" type="text/x-handlebars-template">
+        <h3>Side-by-Side</h3>
         FaceIdSearch: <a href="faces.html?faceid={{match.FaceIdSearch}}">{{match.FaceIdSearch}}</a><br>
         FaceIdTarget: <a href="faces.html?faceid={{match.FaceIdTarget}}">{{match.FaceIdTarget}}</a><br>
         Similarity: {{match.Similarity}}<br>
       </script>
     </div>
+    <script id="templateFace" type="text/x-handlebars-template">
+      <h4>{{Title}}</h4>
+      FaceId: {{face.FaceId}}<br>
+      FileId:<a href="image.html?fileid={{face.FileId}}">{{face.FileId}}</a><br>
+      Confidence:{{face.Confidence}}<br>
+      Gender:{{face.Gender}} @ {{face.GenderConfidence}}<br>
+      Smile:{{face.Smile}} @ {{face.SmileConfidence}}<br>
+    </script>
+    <div id="divSearch"></div>
+    <div id="divTarget"></div>
   </main>
   <script type="text/javascript" src="aws-sdk-2.70.0.min.js"></script>
   <script type="text/javascript" src="aws.js"></script>
