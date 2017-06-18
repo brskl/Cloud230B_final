@@ -29,7 +29,7 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "6d30c302-790d-4b0d-9af1-213a22ccd421.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "834"}, "Width": {"N": "1024"}, "Source": {"S": "http://media.cmgdigital.com/shared/img/photos/2012/08/13/92/2d/slideshow_1002203033_PARTY-OF-FIVE6_62890.jpg"}}'
 
 // Bill Clinton
-aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "2f34f9d1-5142-400a-9f9c-a90580b80059.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "3000"}, "Width": {"N": "2053"}, "Source": {"S": "http://images.closerweekly.com/uploads/posts/image/52886/bill-clinton.jpg"}}
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "2f34f9d1-5142-400a-9f9c-a90580b80059.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "3000"}, "Width": {"N": "2053"}, "Source": {"S": "http://images.closerweekly.com/uploads/posts/image/52886/bill-clinton.jpg"}}'
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "d8f3ff79-9c94-4edf-89e0-9a38da7850c1.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "933"}, "Width": {"N": "948"}, "Source": {"S": "http://thefederalist.com/wp-content/uploads/2015/03/Bill-Clinton-Photo.jpg"}}
 
 // Barack Obama
