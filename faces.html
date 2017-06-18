@@ -62,7 +62,7 @@
           {{#if matches}}
           <table border="1">
             <thead>
-              <tr><th>FaceIdSearch</th><th>FaceIdTarget</th><th>Similarity</th></tr>
+              <tr><th>FaceIdSearch</th><th>FaceIdTarget</th><th>Similarity</th><th>side-by-side</th></tr>
             </thead>
             <tbody>
               {{#each matches}}
@@ -70,6 +70,7 @@
                 <td><a href="faces.html?faceid={{FaceIdSearch}}">{{FaceIdSearch}}</a></td>
                 <td><a href="faces.html?faceid={{FaceIdTarget}}">{{FaceIdTarget}}</a></td>
                 <td>{{Similarity}}</td>
+                <td><a href="matches.html?faceids={{FaceIdSearch}}&faceidt={{FaceIdTarget}}">side-by-side</a></td>
               </tr>
               {{/each}}
             </tbody>
