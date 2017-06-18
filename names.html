@@ -44,11 +44,12 @@
     <div id="divName">
       <script id="templateName" type="text/x-handlebars-template">
         <h3>Name</h3>
+        {{Name}}
       </script>
     </div>
     <div id="divTableFaces">
       <script id="templateTableFaces" type="text/x-handlebars-template">
-        <h3>All Faces</h3>
+        <h4>Faces</h4>
         {{#if faces}}
           <table border="1">
             <thead>
@@ -63,7 +64,6 @@
                 <td>{{Confidence}}</td>
                 <td>{{Gender}}</td>
                 <td>{{Smile}}</td>
-                <td>{{Name}}</td>
               </tr>
               {{/each}}
             </tbody>

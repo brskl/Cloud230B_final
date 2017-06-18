@@ -9,6 +9,7 @@ function loadNamesPage() {
     $('#divTableNames').hide();
     $('#divName').show();
     $('#divTableFaces').show();
+    loadName(nameid);
   } else {
     $('#divTableNames').show();
     $('#divName').hide();
@@ -37,6 +38,12 @@ function loadNames() {
       $('#divTableNames').html(html);
     }
   });
+}
+
+function loadName(nameid) {
+  var tdata = { Name: nameid };
+  var html = templateName(tdata);
+  $('#divName').html(html);
 }
 
 function array_unique_name(arr) {      
