@@ -32,8 +32,20 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "2f34f9d1-5142-400a-9f9c-a90580b80059.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "3000"}, "Width": {"N": "2053"}, "Source": {"S": "http://images.closerweekly.com/uploads/posts/image/52886/bill-clinton.jpg"}}
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "d8f3ff79-9c94-4edf-89e0-9a38da7850c1.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "933"}, "Width": {"N": "948"}, "Source": {"S": "http://thefederalist.com/wp-content/uploads/2015/03/Bill-Clinton-Photo.jpg"}}
 
-// Barak Obama
+// Barack Obama
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "e8851dfd-9c7c-4f06-9570-75acb81e77ea.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "769"}, "Width": {"N": "615"}, "Source": {"S": "http://usinfonews.com/wp-content/uploads/2017/02/Barack-Obama.jpg"}}
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "580ab9fa-4155-41f1-b81a-3688e452e04c.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "400"}, "Width": {"N": "650"}, "Source": {"S": "http://i.ndtvimg.com/i/2015-12/barack-obama-afp_650x400_61450947679.jpg"}}
+
+// Bill Clinton and Barack Obama
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "9107f8fc-3b58-461d-8d21-85c972c9e225.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "780"}, "Width": {"N": "1200"}, "Source": {"S": "https://wittymisfitsinc.files.wordpress.com/2014/11/former-pres-bill-clinton-and-president-obama.jpg"}}
+
+// Melissa Rauch
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "ad6a9f3a-d3a1-4d07-b8aa-cc05087e94a2.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1585"}, "Width": {"N": "1200"}, "Source": {"S": "http://www.hawtcelebs.com/wp-content/uploads/2016/05/melissa-rauch-at-the-nice-guys-premiere-in-hollywood-05-10-2016_1.jpg"}}
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "578771a2-7b7c-4a49-ae13-bd755190e647.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1680"}, "Width": {"N": "1118"}, "Source": {"S": "http://ilarge.lisimg.com/image/4088302/1118full-melissa-rauch.jpg"}}
+
+// Johnny Galecki
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "f1d40dd9-aa68-4aac-b0bf-a9d52d995849.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1000"}, "Width": {"N": "700"}, "Source": {"S": "http://media.hollywood.com/images/700x1000/5939069.jpg"}}
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "b13bd24d-a2bb-4bf7-9371-5898d5de4467.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "408"}, "Width": {"N": "736"}, "Source": {"S": "http://media.urbantabloid.com/wp-content/uploads/2016/03/Johnny-Galecki1.jpg"}}
+
 
 
