@@ -50,6 +50,15 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 // Big Bang Theory cast
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "6b500272-5cea-4ee1-bd8b-7e4161272530.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1080"}, "Width": {"N": "1920"}, "Source": {"S": "http://www.goliath.com/wp-content/uploads/2016/04/Big-Bang-Theory.jpg"}}'
 
+// Kaley Cuoco
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "47cbd5fe-3be7-4e75-bb5d-633047842b1d.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "253"}, "Width": {"N": "450"}, "Source": {"S": "http://cdn23.us1.fansshare.com/photos/kaleycuoco/kaley-cuoco-bigbangtheory-big-bang-theory-1787604230.jpg"}}'
+
+
 // me
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "3d5eebd4-c029-4cd8-b688-7d3c8484819c.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1393"}, "Width": {"N": "1521"}}'
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "e55c6c12-a50e-4aac-9519-ac0678ed3625.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "2720"}, "Width": {"N": "4080"}}'
+
+// cat
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "c9e863dc-d79b-4471-8679-26e31c5e5145.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "2448"}, "Width": {"N": "3264"}}'
+
+
