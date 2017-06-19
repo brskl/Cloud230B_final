@@ -49,3 +49,7 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 
 // Big Bang Theory cast
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "6b500272-5cea-4ee1-bd8b-7e4161272530.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1080"}, "Width": {"N": "1920"}, "Source": {"S": "http://www.goliath.com/wp-content/uploads/2016/04/Big-Bang-Theory.jpg"}}'
+
+// me
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "3d5eebd4-c029-4cd8-b688-7d3c8484819c.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1393"}, "Width": {"N": "1521"}}'
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "e55c6c12-a50e-4aac-9519-ac0678ed3625.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "2720"}, "Width": {"N": "4080"}}'
