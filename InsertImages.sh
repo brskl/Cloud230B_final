@@ -17,6 +17,7 @@ aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": 
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "8b0221a0-34e0-4cee-8d22-76aad535e3b2.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1110"}, "Width": {"N": "740"}, "Source": {"S": "http://iv1.lisimg.com/image/3760781/740full-jennifer-love-hewitt.jpg"}}'
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "47d39e0d-575e-4488-9b66-9100bd50dd63.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "600"}, "Width": {"N": "380"}, "Source": {"S": "https://s-media-cache-ak0.pinimg.com/736x/85/37/14/8537148d786aa3f832ec3791db472efd.jpg"}}'
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "49beab04-d4fc-41ec-bbdd-25e1be886d64.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "1024"}, "Width": {"N": "713"}, "Source": {"S": "http://media.gettyimages.com/photos/actress-jennifer-love-hewitt-attends-the-party-of-five-cast-meet-on-picture-id453736603"}}'
+aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "bbe01a85-dda6-4e80-a00f-2f04bd9d9ef0.jpg"}, "Extension": {"S": "JPG"}, "Height": {"N": "253"}, "Width": {"N": "450"}, "Source": {"S": "somewhere"}}'
 
 // Matthew Fox
 aws dynamodb put-item --table-name CelebrityImageFiles --item '{"FileId": {"S": "ccafe8e1-d7ce-4190-81a2-87960ba253c6.png"}, "Extension": {"S": "PNG"}, "Height": {"N": "493"}, "Width": {"N": "417"}, "Source": {"S": "http://gazettereview.com/wp-content/uploads/2015/06/matthew-fox-young.png"}}'
