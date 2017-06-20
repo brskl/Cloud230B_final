@@ -6,3 +6,5 @@ projectInit.sh: 'aws cli' commands to do initial creation of AWS resources used 
 trigCelebrityImageFiles.js: code for lambda function triggered by DynamoDB table CelebrityImageFiles
 trigCelebrityFaces.js: code for lambda function triggered by DynamoDB table CelebrityFaces
 *.html and all other *.js files: website files
+
+UploadImageFile.sh: 'aws cli' commands to upload image file w/ metadata (w,h,src)
